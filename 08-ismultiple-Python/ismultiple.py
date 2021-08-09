@@ -6,4 +6,16 @@
 
 
 def fun_ismultiple(m, n):
-	return False # replace with your solution
+	
+	
+	if(m==0 and n==0):
+		return True
+	if(n==0 and m!=0):
+		return False
+	a=m%n
+
+	if(a==0):
+		return True
+	
+	else:
+		return False 
