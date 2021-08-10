@@ -33,6 +33,53 @@
 # into a sorted hand.
 # Hint: Also, remember to use % to get the one's digit, and use //= to get rid of the one's digit.
 
-def playstep2(hand, dice):
-	# your code goes here
-	pass
+def handtodice(hand):
+    # your code goes here
+    x=[]
+    p=len(str(hand))
+    m=0
+    i=1
+    while(i<=p):
+        m=hand%10
+        x.append(m)
+        i+=1
+        hand=hand//10
+    c=(x[::-1])
+    return c
+
+def playstep2(hand,dice):
+    # your code goes here
+    a=handtodice(hand)
+    b=handtodice(dice)
+    c=[]
+    y=[]
+    for i in range(len(a)):
+        count=a.count(a[0])
+        count2=a.count(a[1])
+        if(count==1 and count2>1):
+           c.append(a[i])
+    for i in range(1,len(a)):
+        count1=a.count(a[i])
+        if(count1==1):
+            a[i]=b[-1]
+            b.pop()
+        elif(count1>1):
+            a[0]=b[-1]
+            b.pop()
+            break
+    w=(sorted(a,reverse=True))
+    e="".join(str(x) for x in w)
+    f="".join(str(x) for x in b)   
+    # print(e)
+    # print(f)
+    
+    y=tuple((e,f)) 
+    r=[]
+    for el in y:
+        r.append(int(el))
+    # v=(544, 23)
+    # print(type(v))
+    return tuple(r)
+# hand=544
+# dice=23
+# print(playstep2(hand,dice))
