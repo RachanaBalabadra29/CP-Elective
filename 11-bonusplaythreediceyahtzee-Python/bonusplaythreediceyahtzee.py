@@ -41,4 +41,121 @@
 
 def bonusplaythreediceyahtzee(dice):
 	# Your code goes here
-	pass
+	hand1=dice%1000
+	dice1=dice//1000
+	h1,d1=playstep2(hand1,dice1)
+	h2,d2=playstep2(h1,d1)
+	s=checkscore(h2)
+	return h2,s
+	
+
+
+def handtodice(hand):
+    # your code goes here
+    x=[]
+    p=len(str(hand))
+    m=0
+    i=1
+    while(i<=p):
+        m=hand%10
+        x.append(m)
+        i+=1
+        hand=hand//10
+    c=(x[::-1])
+    return c
+
+def handtodice(hand):
+    # your code goes here
+    x=[]
+    p=len(str(hand))
+    m=0
+    i=1
+    while(i<=p):
+        m=hand%10
+        x.append(m)
+        i+=1
+        hand=hand//10
+    c=(x[::-1])
+    return c
+
+# def playstep2(hand,dice):
+#     # your code goes here
+#     a=handtodice(hand)
+#     b=handtodice(dice)
+#     c=[]
+#     y=[]
+#     for i in range(len(a)):
+#         count=a.count(a[0])
+#         count2=a.count(a[1])
+#         if(count==1 and count2>1):
+#            c.append(a[i])
+#     for i in range(1,len(a)):
+#         count1=a.count(a[i])
+#         if(count1==1):
+#             a[i]=b[-1]
+#             b.pop()
+#         elif(count1>1):
+#             a[0]=b[-1]
+#             b.pop()
+#             break
+#     w=(sorted(a,reverse=True))
+#     e="".join(str(x) for x in w)
+#     f="".join(str(x) for x in b)   
+#     # print(e)
+#     # print(f)
+    
+#     y=tuple((e,f)) 
+#     r=[]
+#     for el in y:
+#         r.append(int(el))
+#     # v=(544, 23)
+#     # print(type(v))
+#     return tuple(r)
+
+
+def playstep2(hand,dice):
+	a,b,c=handtodice(hand)
+	dice1=dice
+	if(a==b and b==c and c==a):
+		return(hand,dice)
+	if(a!=b and b!=c and c!=a):
+		h1=a
+		h2=dice1%10
+		dice1=dice1//10
+		h3=dice1%10
+		dice1=dice1//10
+		h=dicetoorderedhand(h1,h2,h3)
+		return(h,dice1)
+	if(b==c):
+		h2=b
+		h3=c
+		h1=dice%10
+		dice=dice//10
+		h=dicetoorderedhand(h1,h2,h3)
+		return(h,dice)
+
+
+def dicetoorderedhand(a, b, c):
+	# your code goes here
+	x=""
+	x+=str(a)
+	x+=str(b)
+	x+=str(c)
+	y="".join(sorted(x,reverse=True))
+	return int(y)
+
+def checkscore(hand):
+	a,b,c=handtodice(hand)
+	arr=[]
+	score=0
+	arr.append(a)
+	arr.append(b)
+	arr.append(c)
+	arr.sort()
+	if(a!=b and b!=c and c!=a):
+		score=arr[2]
+	elif((a==b and b!=c) or (b==c and c!=a)):
+		score=10+b+b
+	elif(a==b and b==c):
+		score=20+a+a+a
+	return score
