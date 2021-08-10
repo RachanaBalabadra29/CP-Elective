@@ -6,6 +6,22 @@
 
 
 def fun_nearestodd(n):
-	return 0
+    q=int(n)%2
+    if(q==0):
+        p=str(n)
+        s=int(p[-1])
+        if(s==5):
+            return int(n+1)
+        elif(s==0):
+            return int(n-1)
+        elif(s<5 and s>0):
+            return int(n+1)
+        
+        else:
+            return int(n+1)
+    else:
+        return int(n)
+        
+	
 
 
