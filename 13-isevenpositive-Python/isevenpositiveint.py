@@ -6,4 +6,24 @@
 
 def isevenpositiveint(x):
 	# your code goes here
-	pass
+	# b=type(x)
+	# if(x==None):
+	# 	return False
+	# elif(x<=0):
+	# 	return False
+	# elif(b!=int):
+	# 	return False
+	# a=x%2
+	# if(a==0):
+	#  	return True
+	# elif((x%2==0) and x>0):
+	# 	return True
+	
+	
+	# elif(x==int or x==str or x==list):
+	# 	return False
+	if(type(x)==int) and x>0 and x%2==0:
+		return True
+	else:
+		return False
+	
