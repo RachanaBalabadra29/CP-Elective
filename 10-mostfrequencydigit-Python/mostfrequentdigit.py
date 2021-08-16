@@ -4,4 +4,21 @@
 
 def mostfrequentdigit(n):
 	# your code goes here
-	pass
+	p=[]
+	l=[]
+	n=str(n)
+	x=0
+	for i in range(len(n)):
+		p.append(n[i])
+	p=sorted(p)
+	for j in range(len(p)):
+		k=p.count(p[j])
+		if(x<k):
+			x=k
+			l.append(p[j])
+		elif(x>=k):
+			pass
+	
+	a="".join(l) 
+	b=a[-1]
+	return int(b)
