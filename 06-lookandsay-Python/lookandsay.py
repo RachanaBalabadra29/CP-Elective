@@ -11,4 +11,10 @@
 
 def lookandsay(a):
 	# Your code goes here
-	pass
+	v=[]
+	for i in range(len(a)):
+		b=a.count(a[i])
+		v.append((b,a[i]))
+	s=set(v)
+	n=list(s)
+	return sorted(n)
