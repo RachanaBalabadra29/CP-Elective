@@ -5,6 +5,24 @@
 
 
 def fun_kth_occurrences(s, n):
-	return 'a'
+	
+	p=[]
+	s=s.replace(" ","")
+	if(len(s)==1):
+		return s
+	for i in range(len(s)):
+		p.append(s[i])
+	d=[]
+	for j in p:
+		c=p.count(j)
+		if(c>1):
+			d.append((j,c))
+			a=set(d)
+	b=list(a)
+	b.sort(key=lambda x:x[1],reverse=True) 
+	#print(b)
+	for i in range(len(b)):
+		v=(b[n-1])
+	return(v[0])
 
 
