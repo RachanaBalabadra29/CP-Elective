@@ -15,5 +15,36 @@
 # assert(nth_happy_number(8) == 31)
 
 
+def squaresum(n):
+    # your code goes here
+    d=0
+    while(n>0):
+        r=n%10
+        c=r*r
+        d+=c
+        n=n//10
+    return d
+
+def happynum(n):
+    s=n
+    f=n
+    while True:
+        s=squaresum(s)
+        f=squaresum(squaresum(f))
+        if(s!=f):
+            continue
+        else:
+            break
+    if(s==1):
+        return True
+    else:
+        return False
+
 def nth_happy_number(n):
-	return 0
+	c=1
+	i=-2
+	while(c<=n):
+		if(happynum(i)==True):
+			c+=1
+		i+=1
+	return i-1
