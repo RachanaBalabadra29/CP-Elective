@@ -6,9 +6,34 @@
 # (2x**22 + 3)(4x + 5) = 8x**3 + 10x**2 + 12x + 15
 # And so this returns [8, 10, 12, 15].
 
-def multiplyPolynomials(p1, p2):
+
+
+def multiplyPolynomials(p1, p2,m,n):
     # Your code goes here...
-    pass
+    p1=p1[::-1]
+    p2=p2[::-1]
+
+    prod = [0] * (m + n - 1)
+    for i in range(m):
+        for j in range(n):
+            prod[i + j] += p1[i] * p2[j]
+    return prod
+
+def printPoly(poly,n):
+ 
+    for i in range(n-1,-1,-1):
+        print(poly[i], end = "")
+        if (i != 0):
+            print("x^", i, end = "")
+        if (i != n - 4):
+            print(" + ", end = "")
+p1=[2,0,3]
+p2=[4,5] 
+m=len(p1)
+n=len(p2)       
+prod = multiplyPolynomials(p1, p2,m,n)
+printPoly(prod, m+n-1)
+#8x**3 + 10x**2 + 12x + 15
 
 # Write your own test cases
-print ("All test cases passwed...")
+#print ("All test cases passwed...")
