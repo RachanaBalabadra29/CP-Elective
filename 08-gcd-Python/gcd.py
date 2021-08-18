@@ -10,4 +10,14 @@
 
 def gcd(m, n):
 	# your code goes here
-	pass
+	if(m==0 or n==0):
+		return 1
+	if(m>n):
+		z=n
+	else:
+		z=m
+	for i in range(1,z+1):
+		if((m%i==0) and (n%i==0)):
+			gcd=i
+	return gcd
+
