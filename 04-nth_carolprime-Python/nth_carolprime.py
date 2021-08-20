@@ -9,5 +9,31 @@
 # for primality (and you may need to think about that hint for a while for it to make sense!).
 
 
+def prime(p):
+    if (p < 2):
+        return False
+    for i in range(2,p):
+        if (p % i == 0):
+            return False
+    return True
+
+
+# def carolprime(n):
+#     h=int((2**n - 1)**2 - 2)
+#     if(prime(h)==True):
+#         # print(h)
+#         return True
+#     else:
+#         return False
+
+
 def fun_nth_carolprime(n):
-    return 0
+    r=0
+    p=1
+    result=0
+    while(r<=n):
+        result=((2**p - 1)**2 - 2)
+        if prime(result):
+               r+=1
+        p+=1
+    return result
