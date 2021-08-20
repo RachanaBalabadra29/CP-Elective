@@ -7,4 +7,22 @@
 
 def issorted(a):
 	# your code goes here
-	pass
+	# if(len(a)==0 or len(a)==2):
+	# 	return True
+	# p=[]
+	# for i in range(1,len(a)+1):
+	# 	p.append(i)
+	# q=p[::-1]
+	# if(p==a or q==a):
+	# 	return True
+	# else:
+	# 	return False
+	
+	if(len(a)==0):
+		return True
+	s=sorted(a)
+	if(s==a or s==a[::-1]):
+		return True
+	else:
+		return False
+	
