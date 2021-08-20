@@ -5,4 +5,17 @@
 
 def median(a):
 	# your code goes here
-	pass
+	
+	low=0
+	high=len(a)
+	mid=(low+high)//2
+
+	if(len(a)==0):
+		return None
+
+	if(len(a)%2==0):
+		mid=(low+high)//2
+		res=(a[mid-1]+a[mid])/2
+		return res
+	else:
+		return a[mid]
