@@ -12,5 +12,26 @@
 
 
 def fun_isfactorish(n):
-	return False
+	n=abs(n)
+	n=str(n)
+	p=[]
+	for i in n:
+		if i not in p:
+			p.append(i)
+
+	for i in range(len(p)):
+		if(p[i]=="0"):
+			del p[i]
+	if(len(p)<3 or len(p)>3):
+		return False
+	elif(len(p)==3):
+		n=int(n)
+		a=n
+		while(n>0):
+			r=n%10
+			if(a%r==0):
+				n=n//10
+		return True
+			
+
 
