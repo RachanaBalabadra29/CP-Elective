@@ -16,8 +16,16 @@
 # -fgh""")
 
 
-def fun_wordwrap(s, n):
-	return ""
+def fun_wordwrap(s,n):
+    #s="".join(s)
+	d=s.strip()
+	m=""
+	d=d.replace(" ","-")
+	for i in range(0,len(d),n):
+		m+=d[i:i+n] + "\n"
+    #m=m.replace("@","\n")
+	return m[:len(s)]
+
 
 
  
