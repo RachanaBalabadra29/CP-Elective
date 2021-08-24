@@ -7,6 +7,21 @@
 
 
 
+
 def fun_nthfibonaccinumber(n):
-	# your code goes Here
-	return 0
+	if(n==0):
+		return 1
+	elif(n==1):
+		return 1
+	elif(n==2):
+	    return 2
+	elif(n>2):
+		return fun_nthfibonaccinumber(n-1)+fun_nthfibonaccinumber(n-2)
+
+# def fun_nthfibonaccinumber(n):
+# 	# your code goes Here
+# 	c=1
+# 	i=1
+# 	while(c<=n):
+# 		z=fibonnaccinumber(i)
+# 	return z
