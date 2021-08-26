@@ -5,6 +5,21 @@
 # carryless sum. As the paper demonstrates, fun_carrylessadd(785, 376) returns 51.
 
 
-def fun_carrylessadd(x, y):
-	return 0
+
+
+
+def fun_carrylessadd(x,y):
+    c=[]
+    while(x>0 or y>0):
+        r=x%10
+        r1=y%10
+        res=x+y
+        v=res%10
+        c.append(v)
+        x=x//10
+        y=y//10
+    c=c[::-1]
+    res=int("".join(map(str, c)))
+    return res
+
 
