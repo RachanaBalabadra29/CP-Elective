@@ -12,6 +12,24 @@
 
 def areAnagrams(s1, s2):
     # Your code goes here...
-    pass
+    s1=s1.lower()
+    s2=s2.lower()
+    p=[]
+    q=[]
+    for i in range(len(s1)):
+        v=s1.count(s1[i])
+        p.append((v,s1[i]))
+    for j in range(len(s2)):
+        v2=s2.count(s2[j])
+        q.append((v2,s2[j]))
+    if(sorted(p)==sorted(q)):
+        return True
+    else:
+        return False
+
+print(areAnagrams("Aba","BAA"))
+print(areAnagrams("cdqssol","ldcsqso"))
+print(areAnagrams("geeks","geaks"))
+print("all testcases are passed")
 
 # write your test cases here...
