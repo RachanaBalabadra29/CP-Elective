@@ -7,6 +7,17 @@
 # yet covered lists, sets, maps, or efficiency, you are not expected to write the most efficient solution. Finally, 
 # if s does not contain any alphabetic characters, the result should be the empty string ("")
 
+
+
+
 def leastfrequentletters(s):
-	# Your code goes here
-	pass
+    s=s.lower()
+    print(s)
+    c=""
+    for i in range(len(s)):
+        if(s[i].isalpha()):
+            if(s.count(s[i])==1):
+                c+=s[i]
+    return "".join(sorted(c))
+
+
