@@ -23,15 +23,43 @@
 # With this in mind, write the class DataTable and also 
 # the class DataColumn so the following test function passes 
 # (without hardcoding any test cases):
-
+# [23, 34, 45]
 class DataColumn: 
-    pass
+    def __init__(self, label, data):
+        self.label = label
+        self.data = data
+    
+    def average(self):
+        s = 0
+        for el in self.data:
+            s += el
+        return s/len(self.data)
 
 class DataTable:
-    pass
+    def __init__(self, data):
+        data = data.strip()
+        x = data.split("\n")
+        self.rows = len(x)
+        x1 = x[0].split(",")
+        self.cols = len(x1)
+        self.data = data
+
+    def getDims(self):
+        return self.rows, self.cols
+    
+    def getColumn(self, index):
+        x = self.data.split("\n")
+        data = []
+        for i in range(len(x)):
+            x1 = x[i].split(",")
+            if i==0:
+                label = x1[index]
+            else:
+                data.append(int(x1[index]))
+        return DataColumn(label, data)
 
 def almostEqual(a, b):
-    return True
+    return a==b
 
 def testDataTableAndDataColumnClasses():
     print('Testing DataTable and DataColumn classes...', end='')
@@ -56,3 +84,5 @@ def testDataTableAndDataColumnClasses():
     assert(column4.data == [92, 100])
     assert(almostEqual(column4.average(), 96))
     print('All test cases passed....!')
+
+testDataTableAndDataColumnClasses()
