@@ -14,14 +14,41 @@
 # If nobody wins (there is no data), return None (not the 
 # string "None"). So, for example:
 
+# [("name",45),("name2",50)]
+
 def topScorer(data):
     # Your code goes here...
-    return ""
+    if data=="": return None
+    res = []
+    p = data.split("\n")
+    for el in p:
+        if el=="": continue
+        x = el.split(",")
+        score = 0
+        for i in range(1,len(x)):
+            score += int(x[i])
+        res.append((x[0],score))
+    res.sort(key = lambda x : x[1], reverse=True)
+    highest = []
+    highScore = res[0][1]
+    for el in res:
+        if el[1] == highScore:
+            highest.append(el[0])
+    if len(highest)==1:
+        return highest[0]
+    else:
+        s = ""
+        for player in highest:
+            s += (player + ",")
+        return s[:-1]
 
 data = '''\
 Fred,10,20,30,40
 Wilma,10,20,30
 '''
+p = data.split("\n")
+print(p)
+
 assert(topScorer(data) == 'Fred')
 
 data = '''\
