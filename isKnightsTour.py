@@ -31,7 +31,25 @@
 
 def isKnightsTour(board):
     # Your code goes here...
-    pass
+    s=[]
+    p=[]
+    rows=len(board)
+    cols=len(board[0])
+    res=rows*cols
+    #print(res)
+    for i in board:
+        #print(i)
+        for j in range(len(i)):
+            #print(i[j])
+            p.append(i[j])
+            
+    for i in range(1,res+1):
+        if i not in p:
+            return False
+    return True
+
+
+
 
 board = [
             [  1, 60, 39, 34, 31, 18,  9, 64 ],
@@ -43,7 +61,19 @@ board = [
             [ 57, 44, 53,  4, 23, 14, 25,  6 ],
             [ 52, 47, 56, 45, 54,  5, 22, 13 ],
         ]
+
+board1 = [
+            [  1, 60, 39, 34, 31, 18,  9, 64 ],
+            [ 38, 35, 32, 61, 10, 63, 30, 17 ],
+            [ 59,  2, 37, 40, 33, 28, 19,  8 ],
+            [ 36, 49, 42, 27, 62, 11, 16, 29 ],
+            [ 43, 58,  30, 50, 41, 24,  7, 20 ],
+            [ 48, 51, 46, 55, 26, 21, 12, 15 ],
+            [ 57, 44, 53,  4, 23, 14, 25,  6 ],
+            [ 52, 47, 56, 45, 54,  5, 22, 13 ],
+        ]
 assert(isKnightsTour(board)==True)
+assert(isKnightsTour(board1)==False)
 
 # You can write your own test cases here...
 print("All test cases passed....")
