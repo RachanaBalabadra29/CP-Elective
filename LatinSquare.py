@@ -8,5 +8,19 @@
 # Write your own test cases...
 
 def isLatinSquare(lst):
-    # Your code goes here...
-    pass
+    p=[]
+    for i in lst:
+        for j in range(len(i)):
+            c=i.count(i[j])
+            p.append(c)
+    for i in p:
+        if(i!=1):
+            return False
+    return True
+      
+
+lst=[[1,2,3],
+     [2,3,1],
+     [3,1,2]]
+
+print(isLatinSquare(lst))
