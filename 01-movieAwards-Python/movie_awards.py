@@ -21,4 +21,17 @@ the function should return as follows
 
 def movie_awards(oscarResults):
     # Your code goes here...
-    pass
+    p=[]
+    q=[]
+    for i in oscarResults:
+        p.append(i[1])
+    #print(p)
+    d = dict()
+    for j in p:
+        s=p.count(j)
+        # p.remove(j)
+        d[j] = s
+        q.append((j,s))
+    # for el in q:
+    #     d[el[0]] = el[1]
+    return d
