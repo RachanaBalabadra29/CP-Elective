@@ -9,3 +9,15 @@ def findzerowithbisection(x, epsilon):
 	# don't change these values
 	# epsilon
 	# your code starts here
+	low=0
+	high=x
+	while(True):
+		mid=(low+high)/2
+		dif=mid**2-x
+		if(abs(dif)<=epsilon):
+			break
+		elif(dif<0):
+			low=mid
+		else:
+			high=mid
+	return mid
